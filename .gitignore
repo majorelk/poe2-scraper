@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+
+# Coverage reports (if using testing frameworks like Jest)
+coverage/
+
+# Build output (if you have any build scripts or use bundlers like Webpack)
+dist/
+build/
