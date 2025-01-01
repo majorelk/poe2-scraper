@@ -60,6 +60,14 @@ The scraper will output the items it has scraped, including item base types and 
 - Push to your branch (git push origin feature-branch).
 - Create a new Pull Request.
 
+Some of the features, code, and expected behaviors in this project are inspired by or derived from the following tools and repositories used by the Path of Exile community:
+
+- **[PyPoE](https://github.com/Project-Path-of-Exile-Wiki/PyPoE)**: This repository has provided inspiration for interacting with the PoE API and understanding the structure for working with item listings and trade searches.
+- **[Exiled Exchange 2](https://github.com/Kvan7/Exiled-Exchange-2/)**: This tool, which focuses on PoE's trade system, is heavily inspired by **[Awakened PoE Trade](https://github.com/SnosMe/awakened-poe-trade)**, which helps normalize trade data and present it in a useful format for users.
+- **[RePoE](https://github.com/brather1ng/RePoE)**: This project has contributed insights into optimizing the user interface for PoE-related tools, focusing on the front-end and how users interact with trade data.
+
+These projects have been instrumental in shaping the way this project operates. We thank their authors for their hard work, contributions to the community, and inspiration.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://) file for details.
