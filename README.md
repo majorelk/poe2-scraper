@@ -38,9 +38,9 @@ touch .env
 Add environment variables like database URLs or API keys inside the .env file.
 
 4.  Run the scraper:
-    ```bash
-    npm start
-    ```
+```bash
+npm start
+```
 ## Running the Project
 
 To start scraping data, simply run the following command:
