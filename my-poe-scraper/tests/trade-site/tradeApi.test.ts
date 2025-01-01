@@ -36,4 +36,41 @@ describe('sendRequest function', () => {
     // Expect the error to be handled and return a custom error message
     expect(result.error).toBe('Request failed');
   });
+  
+  it('should return an empty result if no items are found', async () => {
+    // Mock axios.post to resolve with an empty result
+    const emptyResponse = { data: { id: 'GWXgqQBIb', complexity: 7, result: [] } };
+    (axios.post as jest.Mock).mockResolvedValue(emptyResponse);
+
+    // Call the sendRequest function with the required parameters
+    const result = await sendRequest('weapon.warstaff', 'standard');
+
+    // Expect the response to match the empty result
+    expect(result).toEqual(emptyResponse.data);
+  });
+
+  it('should return the correct data structure', async () => {
+    // Mock axios.post to resolve with mock data
+    (axios.post as jest.Mock).mockResolvedValue(mockResponse);
+
+    // Call the sendRequest function with the required parameters
+    const result = await sendRequest('weapon.warstaff', 'standard');
+
+    // Expect the response to have the correct structure
+    expect(result).toHaveProperty('id');
+    expect(result).toHaveProperty('complexity');
+    expect(result).toHaveProperty('result');
+    expect(Array.isArray(result.result)).toBe(true);
+  });
+
+  it('should handle network errors correctly', async () => {
+    // Mock axios.post to throw a network error
+    (axios.post as jest.Mock).mockRejectedValue({ message: 'Network Error' });
+
+    // Call the sendRequest function with the required parameters
+    const result = await sendRequest('weapon.warstaff', 'standard');
+
+    // Expect the error to be handled and return a custom error message
+    expect(result.error).toBe('Request failed');
+  });
 });
