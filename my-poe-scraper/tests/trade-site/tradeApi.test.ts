@@ -1,8 +1,8 @@
 import { sendRequest } from '../../src/trade-site/tradeApi'; // Adjust the import path as needed
+import axios from 'axios';
 
 // Mocking axios to avoid actual HTTP requests during testing
 jest.mock('axios');
-import post from 'axios';
 
 // Define the mock data you expect to receive from the API
 const mockResponse = {
@@ -17,7 +17,7 @@ const mockResponse = {
 describe('sendRequest function', () => {
   it('should make a POST request and return data successfully', async () => {
     // Mock axios.post to resolve with mock data
-    (post as unknown as jest.Mock).mockResolvedValue(mockResponse);
+    (axios.post as jest.Mock).mockResolvedValue(mockResponse);
 
     // Call the sendRequest function with the required parameters
     const result = await sendRequest('weapon.warstaff', 'standard');
@@ -28,7 +28,7 @@ describe('sendRequest function', () => {
 
   it('should handle errors correctly', async () => {
     // Mock axios.post to throw an error
-    (post as unknown as jest.Mock).mockRejectedValue(new Error('Request failed'));
+    (axios.post as jest.Mock).mockRejectedValue(new Error('Request failed'));
 
     // Call the sendRequest function with the required parameters
     const result = await sendRequest('weapon.warstaff', 'standard');
